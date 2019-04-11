@@ -1,0 +1,21 @@
+{
+    "notebook:enable-output-scrolling": {
+      "command": "notebook:enable-output-scrolling",
+      "keys": [
+        "S"
+      ],
+      "selector": ".jp-Notebook:focus",
+      "title": "Enable output scrolling",
+      "category": "Notebook Cell Operations"
+    },
+        
+    "notebook:disable-output-scrolling": {
+      "command": "notebook:disable-output-scrolling",
+      "keys": [
+        "Shift S"
+      ],
+      "selector": ".jp-Notebook:focus",
+      "title": "disable output scrolling",
+      "category": "Notebook Cell Operations"
+    }
+}
