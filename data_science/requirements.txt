@@ -19,3 +19,4 @@ boto3
 botocore
 torch==0.4.1
 seaborn==0.9.0
+xgboost
