@@ -32,12 +32,14 @@ RUN echo '{"keyMap": "vim"}' > \
 # toc
 RUN jupyter labextension install @jupyterlab/toc
 
-
 # 文字化け対応
-RUN export LANG=C.UTF-8
-RUN export LANGUAGE=en_US:
+ENV LANG=C.UTF-8
+ENV LANGUAGE=en_US:
 
 # id 関係
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+#ENTRYPOINT /usr/local/bin/entrypoint.sh;  export LANG=C.UTF-8; export LANGUAGE=en_US:
+#ENTRYPOINT /usr/local/bin/entrypoint.sh
+
