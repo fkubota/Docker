@@ -27,3 +27,5 @@ echo '{"keyMap": "vim"}' > \
 
 
 exec /usr/sbin/gosu user "$@"
+
+
