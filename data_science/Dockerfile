@@ -19,18 +19,19 @@ RUN apt purge -y nodejs npm
 # jupyterlab extension
 # extension を有効に
 # /root ==> /home/user
-RUN mkdir -p /home/user/.jupyter/lab/user-settings/@jupyterlab/extensionmanager-extension
+# /tempo/ に保存して entrypoint.sh で保存する作戦
+RUN mkdir -p /tempo/.jupyter/lab/user-settings/@jupyterlab/extensionmanager-extension
 RUN echo '{"enabled":true}' > \
-  /home/user/.jupyter/lab/user-settings/@jupyterlab/extensionmanager-extension/plugin.jupyterlab-settings
+  /tempo/.jupyter/lab/user-settings/@jupyterlab/extensionmanager-extension/plugin.jupyterlab-settings
 # 黒背景設定を追加
-RUN mkdir -p /home/user/.jupyter/lab/user-settings/@jupyterlab/apputils-extension
+RUN mkdir -p /tempo/.jupyter/lab/user-settings/@jupyterlab/apputils-extension
 RUN echo '{"theme":"JupyterLab Dark"}' > \
-  /home/user/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/themes.jupyterlab-settings
+  /tempo/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/themes.jupyterlab-settings
 # vim extansion
 RUN jupyter labextension install jupyterlab_vim
-RUN mkdir -p /home/user/.jupyter/lab/user-settings/@jupyterlab/codemirror-extension
+RUN mkdir -p /tempo/.jupyter/lab/user-settings/@jupyterlab/codemirror-extension
 RUN echo '{"keyMap": "vim"}' > \
-  /home/user/.jupyter/lab/user-settings/@jupyterlab/codemirror-extension/commands.jupyterlab-settings
+  /tempo/.jupyter/lab/user-settings/@jupyterlab/codemirror-extension/commands.jupyterlab-settings
 # toc
 RUN jupyter labextension install @jupyterlab/toc
 
