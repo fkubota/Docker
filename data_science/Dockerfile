@@ -2,8 +2,9 @@ FROM nvidia/cuda:9.0-base
 ADD . /code
 WORKDIR /code
 RUN apt-get update && apt-get install -y software-properties-common
-RUN add-apt-repository ppa:jonathonf/python-3.6
-RUN apt-get update && apt-get install -y  python3.6 build-essential libssl-dev libffi-dev python3-dev python3-pip curl nodejs npm gnupg vim gosu
+RUN add-apt-repository ppa:jonathonf/python-3.6 && apt-get update && apt-get install -y python3.6
+RUN apt-get update && apt-get install -y build-essential libssl-dev libffi-dev python3.6-dev python3-pip curl nodejs npm gnupg vim gosu
+# RUN  add-apt-repository ppa:jonathonf/python-3.6 && apt-get update && apt-get install -y python3.6 build-essential libssl-dev libffi-dev python3.6-dev python3-pip curl nodejs npm gnupg vim gosu
 RUN pip3 install -r /code/requirements.txt
 WORKDIR /work
 
@@ -18,8 +19,6 @@ RUN apt purge -y nodejs npm
 
 # jupyterlab extension
 # extension を有効に
-# /root ==> /home/user
-# /tempo/ に保存して entrypoint.sh で保存する作戦
 RUN mkdir -p /tempo/.jupyter/lab/user-settings/@jupyterlab/extensionmanager-extension
 RUN echo '{"enabled":true}' > \
   /tempo/.jupyter/lab/user-settings/@jupyterlab/extensionmanager-extension/plugin.jupyterlab-settings
