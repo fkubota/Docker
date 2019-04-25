@@ -3,9 +3,18 @@ ADD . /code
 WORKDIR /code
 RUN apt-get update && apt-get install -y software-properties-common
 RUN add-apt-repository ppa:jonathonf/python-3.6 && apt-get update && apt-get install -y python3.6
+# python3.6 をデフォルトに
+RUN mkdir -p /usr/bin
+RUN ln -s -f /usr/bin/python3.6 /usr/bin/python
+
 RUN apt-get update && apt-get install -y build-essential libssl-dev libffi-dev python3.6-dev python3-pip curl nodejs npm gnupg vim gosu
 # RUN  add-apt-repository ppa:jonathonf/python-3.6 && apt-get update && apt-get install -y python3.6 build-essential libssl-dev libffi-dev python3.6-dev python3-pip curl nodejs npm gnupg vim gosu
+
+
+# ライブラリのインストール
 RUN pip3 install -r /code/requirements.txt
+
+# デフォルト作業ディレクトリ
 WORKDIR /work
 
 # jupyterlab
