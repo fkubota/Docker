@@ -1,35 +1,31 @@
-FROM nvidia/cuda:9.0-base
+FROM ubuntu:18.04
 ADD . /code
 WORKDIR /code
 RUN apt-get update && apt-get install -y software-properties-common
 RUN add-apt-repository ppa:jonathonf/python-3.6 && apt-get update && apt-get install -y python3.6
-RUN apt-get update && apt-get install -y build-essential libssl-dev libffi-dev python3.6-dev python3-pip curl nodejs npm gnupg vim gosu
-# RUN  add-apt-repository ppa:jonathonf/python-3.6 && apt-get update && apt-get install -y python3.6 build-essential libssl-dev libffi-dev python3.6-dev python3-pip curl nodejs npm gnupg vim gosu
-#RUN apt-get update && apt-get install -y build-essential libssl-dev libffi-dev python3.6-dev python3-pip vim gosu
-
-## python3.6 をデフォルトに
-#RUN mkdir -p /usr/bin
-#RUN ln -s -f /usr/bin/python3.6 /usr/bin/python
-#RUN pip install -r /code/requirements.txt
+RUN apt-get update && apt-get install -y build-essential libssl-dev libffi-dev python3.6-dev python3-pip vim gosu curl gnupg
 
 # python3.6 をデフォルトに
 RUN mkdir -p $HOME/bin
 RUN ln -s -f /usr/bin/python3.6 /usr/bin/python
 RUN ln -s -f /usr/bin/python3.6 /usr/bin/python3
+
+# ライブラリインストール
 RUN pip3 install --upgrade pip
 RUN pip3 install -r /code/requirements.txt
-
-
-
 
 # デフォルト作業ディレクトリ
 WORKDIR /work
 
-# -------------------------------
 # jupyterlab
 RUN pip3 install jupyterlab 
 
 # node js を最新Verにする
+RUN curl -sL https://deb.nodesource.com/setup_10.x #| -E bash -
+RUN apt-get update && apt-get install -y nodejs
+RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg #|apt-key add -
+RUN apt-get update && apt-get install -y yarn && apt-get install -y npm
+
 RUN npm -y install n -g
 RUN n stable
 RUN apt purge -y nodejs npm
