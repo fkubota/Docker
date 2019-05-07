@@ -30,6 +30,10 @@ echo '{"keyMap": "vim"}' > \
   /home/user/.jupyter/lab/user-settings/@jupyterlab/codemirror-extension/commands.jupyterlab-settings
 
 
+#権限付与
+chmod -R ugo+rw /home/user/.jupyter/lab/
+
+
 exec /usr/sbin/gosu user "$@"
 
 

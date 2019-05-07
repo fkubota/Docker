@@ -29,7 +29,7 @@ mkdir -p /home/user/.jupyter/lab/user-settings/@jupyterlab/codemirror-extension
 echo '{"keyMap": "vim"}' > \
   /home/user/.jupyter/lab/user-settings/@jupyterlab/codemirror-extension/commands.jupyterlab-settings
 
-#test
+# 権限付与
 chmod -R ugo+rw /home/user/.jupyter/lab/
 
 
