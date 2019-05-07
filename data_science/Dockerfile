@@ -4,13 +4,6 @@ WORKDIR /code
 RUN apt-get update && apt-get install -y software-properties-common
 RUN add-apt-repository ppa:jonathonf/python-3.6 && apt-get update && apt-get install -y python3.6
 RUN apt-get update && apt-get install -y build-essential libssl-dev libffi-dev python3.6-dev python3-pip curl nodejs npm gnupg vim gosu
-# RUN  add-apt-repository ppa:jonathonf/python-3.6 && apt-get update && apt-get install -y python3.6 build-essential libssl-dev libffi-dev python3.6-dev python3-pip curl nodejs npm gnupg vim gosu
-#RUN apt-get update && apt-get install -y build-essential libssl-dev libffi-dev python3.6-dev python3-pip vim gosu
-
-## python3.6 をデフォルトに
-#RUN mkdir -p /usr/bin
-#RUN ln -s -f /usr/bin/python3.6 /usr/bin/python
-#RUN pip install -r /code/requirements.txt
 
 # python3.6 をデフォルトに
 RUN mkdir -p $HOME/bin
@@ -45,12 +38,12 @@ RUN apt purge -y nodejs npm
 #RUN echo '{"theme":"JupyterLab Dark"}' > \
 #  /tempo/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/themes.jupyterlab-settings
 ## vim extansion
-#RUN jupyter labextension install jupyterlab_vim
+RUN jupyter labextension install jupyterlab_vim
 #RUN mkdir -p /tempo/.jupyter/lab/user-settings/@jupyterlab/codemirror-extension
 #RUN echo '{"keyMap": "vim"}' > \
 #  /tempo/.jupyter/lab/user-settings/@jupyterlab/codemirror-extension/commands.jupyterlab-settings
 ## toc
-#RUN jupyter labextension install @jupyterlab/toc
+RUN jupyter labextension install @jupyterlab/toc
 
 # 文字化け対応
 ENV LANG=C.UTF-8

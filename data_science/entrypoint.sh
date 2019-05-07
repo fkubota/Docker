@@ -24,11 +24,13 @@ echo '{"enabled":true}' > \
 mkdir -p /home/user/.jupyter/lab/user-settings/@jupyterlab/apputils-extension
 echo '{"theme":"JupyterLab Dark"}' > \
   /home/user/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/themes.jupyterlab-settings
-chmod 777  /home/user/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/themes.jupyterlab-settings
 # vim extansion
 mkdir -p /home/user/.jupyter/lab/user-settings/@jupyterlab/codemirror-extension
 echo '{"keyMap": "vim"}' > \
   /home/user/.jupyter/lab/user-settings/@jupyterlab/codemirror-extension/commands.jupyterlab-settings
+
+#test
+chmod -R ugo+rw /home/user/.jupyter/lab/
 
 
 exec /usr/sbin/gosu user "$@"
