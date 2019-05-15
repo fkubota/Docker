@@ -2,15 +2,16 @@ FROM nvidia/cuda:9.0-base
 ADD . /code
 WORKDIR /code
 RUN apt-get update && apt-get install -y software-properties-common
-RUN add-apt-repository ppa:jonathonf/python-3.6 && apt-get update && apt-get install -y python3.6
-RUN apt-get update && apt-get install -y build-essential libssl-dev libffi-dev python3.6-dev python3-pip curl nodejs npm gnupg vim gosu ffmpeg sudo
+#RUN add-apt-repository ppa:jonathonf/python-3.6 && apt-get update && apt-get install -y python3.6
+#RUN apt-get update && apt-get install -y build-essential libssl-dev libffi-dev python3.6-dev python3-pip curl nodejs npm gnupg vim gosu ffmpeg sudo
+RUN apt-get update && apt-get install -y sudo gosu vim ffmpeg
 
 # python3.6 をデフォルトに
-RUN mkdir -p $HOME/bin
-RUN ln -s -f /usr/bin/python3.6 /usr/bin/python
-RUN ln -s -f /usr/bin/python3.6 /usr/bin/python3
-RUN pip3 install --upgrade pip
-RUN pip3 install -r /code/requirements.txt
+#RUN mkdir -p $HOME/bin
+#RUN ln -s -f /usr/bin/python3.6 /usr/bin/python
+#RUN ln -s -f /usr/bin/python3.6 /usr/bin/python3
+#RUN pip3 install --upgrade pip
+#RUN pip3 install -r /code/requirements.txt
 
 
 # root password
@@ -22,12 +23,12 @@ WORKDIR /work
 
 # -------------------------------
 # jupyterlab
-RUN pip3 install jupyterlab 
+#RUN pip3 install jupyterlab 
 
 # node js を最新Verにする
-RUN npm -y install n -g
-RUN n stable
-RUN apt purge -y nodejs npm
+#RUN npm -y install n -g
+#RUN n stable
+#RUN apt purge -y nodejs npm
 
 
 # jupyterlab extension
@@ -40,12 +41,12 @@ RUN apt purge -y nodejs npm
 #RUN echo '{"theme":"JupyterLab Dark"}' > \
 #  /tempo/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/themes.jupyterlab-settings
 ## vim extansion
-RUN jupyter labextension install jupyterlab_vim
+#RUN jupyter labextension install jupyterlab_vim
 #RUN mkdir -p /tempo/.jupyter/lab/user-settings/@jupyterlab/codemirror-extension
 #RUN echo '{"keyMap": "vim"}' > \
 #  /tempo/.jupyter/lab/user-settings/@jupyterlab/codemirror-extension/commands.jupyterlab-settings
 ## toc
-RUN jupyter labextension install @jupyterlab/toc
+#RUN jupyter labextension install @jupyterlab/toc
 
 # 文字化け対応
 ENV LANG=C.UTF-8

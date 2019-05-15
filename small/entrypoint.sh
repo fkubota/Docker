@@ -33,10 +33,10 @@ echo '{"keyMap": "vim"}' > \
 chmod -R ugo+rw /home/user/.jupyter/lab/
 
 
-# sudo権限の追加(パスワードはhello)
+# sudo権限の追加
 echo "user:hello" | chpasswd && adduser user sudo
-  
 
+  
 exec /usr/sbin/gosu user "$@"
 
 
