@@ -22,4 +22,7 @@ xgboost
 librosa
 imbalanced-learn
 pandas
-
+pandas-profiling
+seaborn
+ipympl
+plotly

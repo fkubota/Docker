@@ -46,6 +46,11 @@ RUN jupyter labextension install jupyterlab_vim
 #  /tempo/.jupyter/lab/user-settings/@jupyterlab/codemirror-extension/commands.jupyterlab-settings
 ## toc
 RUN jupyter labextension install @jupyterlab/toc
+## matplotlib
+RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
+RUN jupyter labextension install jupyter-matplotlib
+# plotly
+RUN jupyter labextension install @jupyterlab/plotly-extension
 
 # 文字化け対応
 ENV LANG=C.UTF-8
