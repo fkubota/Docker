@@ -22,4 +22,6 @@ xgboost
 librosa
 imbalanced-learn
 pandas
+seaborn
+pandas_profiling
 
