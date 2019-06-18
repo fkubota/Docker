@@ -27,3 +27,7 @@ seaborn
 ipympl
 plotly
 lightgbm
+hyperopt
+optuna
+keras==2.2.4
+tensorflow-gpu=1.12.0
