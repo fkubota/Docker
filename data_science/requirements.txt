@@ -30,4 +30,5 @@ lightgbm
 hyperopt
 optuna
 keras==2.2.4
-tensorflow-gpu=1.12.0
+tensorflow-gpu==1.12.0
+fastprogress
