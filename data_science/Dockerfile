@@ -22,7 +22,7 @@ WORKDIR /work
 
 # -------------------------------
 # jupyterlab
-RUN pip3 install jupyterlab 
+RUN pip3 install jupyterlab==0.35.6
 
 # node js を最新Verにする
 RUN npm -y install n -g

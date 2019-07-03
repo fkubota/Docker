@@ -18,6 +18,7 @@ boto
 boto3
 botocore
 torch==1.0.0
+
 xgboost
 librosa
 imbalanced-learn
