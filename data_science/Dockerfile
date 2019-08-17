@@ -1,4 +1,6 @@
-FROM nvidia/cuda:9.0-base
+# FROM nvidia/cuda:9.0-base
+FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
+
 ADD . /code
 WORKDIR /code
 RUN apt-get update && apt-get install -y software-properties-common 
@@ -22,7 +24,8 @@ WORKDIR /work
 
 # -------------------------------
 # jupyterlab
-RUN pip3 install jupyterlab==0.35.6
+#RUN pip3 install jupyterlab==0.35.6
+RUN pip3 install jupyterlab
 
 # node js を最新Verにする
 RUN npm -y install n -g
@@ -51,6 +54,8 @@ RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
 RUN jupyter labextension install jupyter-matplotlib
 # plotly
 RUN jupyter labextension install @jupyterlab/plotly-extension
+# draw.io
+RUN jupyter labextension install jupyterlab-drawio
 
 # 文字化け対応
 ENV LANG=C.UTF-8
