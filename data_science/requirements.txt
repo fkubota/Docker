@@ -38,3 +38,4 @@ umap-learn
 
 slackweb
 requests
+flake8
