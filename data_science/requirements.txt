@@ -34,5 +34,7 @@ keras==2.2.4
 tensorflow-gpu==1.12.0
 fastprogress
 torchvision==0.2.0
-requests
+umap-learn
+
 slackweb
+requests

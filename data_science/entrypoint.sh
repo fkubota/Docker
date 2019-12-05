@@ -28,6 +28,11 @@ echo '{"theme":"JupyterLab Dark"}' > \
 mkdir -p /home/user/.jupyter/lab/user-settings/@jupyterlab/codemirror-extension
 echo '{"keyMap": "vim"}' > \
   /home/user/.jupyter/lab/user-settings/@jupyterlab/codemirror-extension/commands.jupyterlab-settings
+# short cut
+mkdir -p /home/user/.jupyter/lab/user-settings/@jupyterlab/shortcuts-extension
+echo '{ "notebook:enable-output-scrolling": { "command": "notebook:enable-output-scrolling", "keys": [ "S" ], "selector": ".jp-Notebook:focus", "title": "Enable output scrolling", "category": "Notebook Cell Operations" }, "notebook:disable-output-scrolling": { "command": "notebook:disable-output-scrolling", "keys": [ "Shift S" ], "selector": ".jp-Notebook:focus", "title": "disable output scrolling", "category": "Notebook Cell Operations" } }' > \
+  /home/user/.jupyter/lab/user-settings/@jupyterlab/shortcuts-extension/plugin.jupyterlab-settings
+
 
 # 権限付与
 chmod -R ugo+rw /home/user/.jupyter/lab/
