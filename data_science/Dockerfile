@@ -16,7 +16,7 @@ RUN pip3 install -r /code/requirements.txt
 
 
 # デフォルト作業ディレクトリ
-WORKDIR /work
+WORKDIR /home/user
 
 # -------------------------------
 # jupyterlab

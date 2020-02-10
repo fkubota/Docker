@@ -35,6 +35,7 @@ tensorflow-gpu==1.12.0
 fastprogress
 torchvision==0.2.0
 statsmodels
+pymc3
 
 slackweb
 requests
