@@ -40,3 +40,4 @@ pymc3
 slackweb
 requests
 flake8
+daft
