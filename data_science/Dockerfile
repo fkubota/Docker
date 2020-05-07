@@ -41,6 +41,8 @@ RUN jupyter labextension install jupyter-matplotlib
 RUN jupyter labextension install @jupyterlab/plotly-extension
 # draw.io
 RUN jupyter labextension install jupyterlab-drawio
+# nord theme
+RUN jupyter labextension install @kenshohara/theme-nord-extension
 
 # 文字化け対応
 ENV LANG=C.UTF-8
