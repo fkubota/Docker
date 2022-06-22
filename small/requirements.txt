@@ -3,7 +3,7 @@ eyeD3==0.8.7
 matplotlib==3.0.0
 filelock==3.0.9
 kiwisolver==1.0.1
-numpy==1.15.2
+numpy==1.22.0
 pathlib==1.0.1
 protobuf==3.6.1
 pydub==0.23.0
