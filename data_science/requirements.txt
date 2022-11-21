@@ -31,7 +31,7 @@ lightgbm
 hyperopt
 optuna
 keras==2.2.4
-tensorflow-gpu==1.12.0
+tensorflow-gpu==2.9.3
 fastprogress
 torchvision==0.2.0
 statsmodels
